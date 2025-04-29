@@ -11,5 +11,33 @@
             <util:constant static-field="java.lang.System.out"/>
         </constructor-arg>
     </bean>
-
+    <bean id="answer" class="ru.otus.hw.domain.Answer">
+        <constructor-arg index="0">
+            <value type="java.lang.String"/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <value type="boolean">false</value>
+        </constructor-arg>
+    </bean>
+    <bean id="question" class="ru.otus.hw.domain.Question">
+        <constructor-arg index="0">
+            <value type="java.lang.String"/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <array value-type="ru.otus.hw.domain.Answer"/>
+        </constructor-arg>
+    </bean>
+    <bean id="appProperties" class="ru.otus.hw.config.AppProperties">
+        <constructor-arg type="java.lang.String" value="target\\classes\\questions.csv"/>
+    </bean>
+    <bean id="csvQuestionDao" class="ru.otus.hw.dao.CsvQuestionDao">
+        <constructor-arg ref="appProperties" name="fileNameProvider"/>
+    </bean>
+    <bean id="testServiceImpl" class="ru.otus.hw.service.TestServiceImpl">
+        <constructor-arg ref="ioService"/>
+        <constructor-arg ref="csvQuestionDao"/>
+    </bean>
+    <bean id="testRunnerService" class="ru.otus.hw.service.TestRunnerServiceImpl">
+        <constructor-arg ref="testServiceImpl"/>
+    </bean>
 </beans>
