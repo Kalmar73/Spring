@@ -6,6 +6,7 @@ import ru.otus.spring.service.PersonService;
 
 @Configuration
 @ComponentScan
+@EnableAspectJAutoProxy
 public class Main {
 
     public static void main(String[] args) {
