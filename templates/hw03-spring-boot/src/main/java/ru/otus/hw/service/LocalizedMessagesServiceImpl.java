@@ -10,10 +10,10 @@ import ru.otus.hw.config.LocaleConfig;
 public class LocalizedMessagesServiceImpl implements LocalizedMessagesService {
 
     private final LocaleConfig localeConfig;
+    private final MessageSource ms;
 
-    // Доделать
     @Override
     public String getMessage(String code, Object... args) {
-        return null;
+        return ms.getMessage(code, args,localeConfig.getLocale());
     }
 }
