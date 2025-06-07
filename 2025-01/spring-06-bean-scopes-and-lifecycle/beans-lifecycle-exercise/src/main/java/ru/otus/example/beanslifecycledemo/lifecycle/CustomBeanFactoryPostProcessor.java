@@ -19,7 +19,7 @@ public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
             System.out.println("Шаг #1: BeanFactoryPostProcessor.postProcessBeanFactory\n");
         }
 
-/*        for (String beanName : beanFactory.getBeanDefinitionNames()) {
+       for (String beanName : beanFactory.getBeanDefinitionNames()) {
             var d = beanFactory.getBeanDefinition(beanName);
             if (d instanceof ScannedGenericBeanDefinition scannedBeanDefinition) {
 
@@ -30,6 +30,6 @@ public class CustomBeanFactoryPostProcessor implements BeanFactoryPostProcessor 
                 var classNameAttr = new BeanMetadataAttribute(CLASS_NAME_ATTR, FriendPhoneNumber.class.getName());
                 scannedBeanDefinition.addMetadataAttribute(classNameAttr);
             }
-        }*/
+        }
     }
 }
