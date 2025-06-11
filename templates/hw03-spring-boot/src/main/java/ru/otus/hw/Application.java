@@ -12,6 +12,5 @@ public class Application {
         ApplicationContext context = SpringApplication.run(Application.class, args);
         var testRunnerService = context.getBean(TestRunnerService.class);
         testRunnerService.run();
-
     }
 }
